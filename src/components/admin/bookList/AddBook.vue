@@ -111,7 +111,6 @@
         }
     }
 </script>
-
 <style scoped lang="less">
         .container {
             .addContent {
