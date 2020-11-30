@@ -1,35 +1,37 @@
 <template>
-    <div class="container">
-        <Header></Header>
-        <div class="container">
-            <el-row>
-                <el-col class="aside" :span="4">
+    <el-container class="bookContent">
+        <el-header>
+            <Header></Header>
+        </el-header>
+        <div class="content">
+            <el-container class="container">
+                <el-aside width="200px">
                     <el-menu
-                        background-color="#253D55"
-                        text-color="#fff"
-                        :collapse-transition="false"
-                        :default-active="activePath"
-                        :router="true"
-                            >
-                            <el-menu-item
-                                    v-for="(item,index) in list"
-                                    :key="item.id"
-                                    :index="item.path"
-                                    @click="clickPath(item.path)"
-                            >
-                                <i :class="icons[index]"></i>
-                                <span>{{item.aside_name}}</span>
-                            </el-menu-item>
+                            background-color="#253D55"
+                            text-color="#fff"
+                            :collapse-transition="false"
+                            :default-active="activePath"
+                            :router="true"
+                    >
+                        <el-menu-item
+                                v-for="(item,index) in list"
+                                :key="item.id"
+                                :index="item.path"
+                                @click="clickPath(item.path)"
+                        >
+                            <i :class="icons[index]"></i>
+                            <span>{{item.aside_name}}</span>
+                        </el-menu-item>
 
                     </el-menu>
-                </el-col>
-                <el-col class="main" :span="20">
-                    <router-view></router-view>
-                </el-col>
 
-            </el-row>
+                </el-aside>
+                <el-main class="main" :span="20">
+                    <router-view></router-view>
+                </el-main>
+            </el-container>
         </div>
-    </div>
+    </el-container>
 </template>
 
 <script>
@@ -63,11 +65,25 @@
 </script>
 
 <style scoped lang="less">
-    .container {
-        height: 100%;
-        overflow: hidden;
-        .el-row, .el-col, .el-menu{
+    .el-container {
             height: 100%;
+        .el-header {
+            padding: 0;
+        }
+        .content {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 60px;
+            bottom: 0;
+        }
+        .el-aside {
+            background-color: #253D55;
+            overflow: hidden;
+            .el-menu {
+                width: 201px;
+            }
+
         }
         .is-active {
             background-color: #333!important;

@@ -16,7 +16,12 @@ import {
     PageHeader,
     DatePicker,
     MessageBox,
-    Pagination
+    Pagination,
+    Upload,
+    Container,
+    Header,
+    Aside,
+    Main
 } from 'element-ui'
 Vue.use(Button)
 Vue.use(Form)
@@ -33,5 +38,10 @@ Vue.use(TableColumn)
 Vue.use(PageHeader)
 Vue.use(DatePicker)
 Vue.use(Pagination)
+Vue.use(Upload)
+Vue.use(Container)
+Vue.use(Header)
+Vue.use(Aside)
+Vue.use(Main)
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm
