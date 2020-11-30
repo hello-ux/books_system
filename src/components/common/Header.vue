@@ -1,10 +1,8 @@
 <template>
-    <div>
         <header>
                 <h3>图书管理系统</h3>
                 <el-button size="small" v-if="isShow" @click="loginOut">退出</el-button>
         </header>
-    </div>
 </template>
 
 <script>

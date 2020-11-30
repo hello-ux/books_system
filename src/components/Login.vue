@@ -12,7 +12,7 @@
                     <el-input  type="text" v-model="formData.email"></el-input>
                 </el-form-item>
                 <el-form-item label="密码" prop="password">
-                    <el-input v-model="formData.password"></el-input>
+                    <el-input v-model="formData.password" type="password"></el-input>
                 </el-form-item>
                 <el-button type="primary" size="large" @click="signIn">登录</el-button>
             </el-form>
@@ -71,7 +71,6 @@
         },
         methods: {
              signIn() {
-                // console.log(this.formData)
                 this.$refs.loginForm.validate( async valid => {
                     if(!valid) return
                    const res = await getLogin('/login', this.formData)
@@ -79,6 +78,8 @@
                         sessionStorage.setItem('token',res.token)
                         this.$message.success(res.msg)
                         this.$router.push('/admin')
+                    }else {
+                        this.$message.error(res.msg)
                     }
                 })
             }

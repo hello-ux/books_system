@@ -30,6 +30,14 @@
                     width="60"
             ></el-table-column>
             <el-table-column
+                    label="封面"
+                    width="80"
+            >
+                <template v-slot="slotProps">
+                    <img :src="slotProps.row.imgPath" alt="" class="book_img">
+                </template>
+            </el-table-column>
+            <el-table-column
                     label="书名"
                     prop="book_name"
 
@@ -93,6 +101,7 @@
                     pagesize: this.bookList.pagesize,
                     pageNum: this.bookList.pageNum
                 })
+                console.log(res)
                 this.bookList.data = res.data
                 this.bookList.total = res.total
                 this.bookList.pagesize = res.pagesize
@@ -168,10 +177,14 @@
         }
         .el-table {
             margin-top: 10px;
-
+            .book_img {
+                width: 40px;
+                height: 40px;
+            }
         }
         .el-pagination {
             margin-top: 20px;
         }
+
     }
 </style>
